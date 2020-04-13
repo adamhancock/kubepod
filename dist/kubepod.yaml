@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kubepod
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: kubepod
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: kubepod
+    namespace: {{ namespace }}
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubepod
+  namespace: {{ namespace }}
+spec:
+  serviceAccountName: kubepod
+  containers:
+    - name: kubepod
+      image: adamhancock/kubepod:{{ version }}
+      imagePullPolicy: IfNotPresent
+      stdin: true
+      tty: true
+      env:
+        - name: HOSTIP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
