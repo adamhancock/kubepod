@@ -6,11 +6,10 @@
   "bin": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm version patch && npm run buildContainer && npm run buildWrapper",
-    "buildWrapper": "ncc build src/index.js -C -o dist",
+    "build": "npm version patch && npm run buildContainer",
+    "buildWrapper": "ncc build src/index.js -o dist",
     "buildContainer": "docker buildx build container -t adamhancock/kubepod:`cat package.json | jq -r '.version'` --push --platform=linux/amd64",
-    "start": "node dist/index.js",
-    "publish": "npm publish dist"
+    "start": "node dist/index.js"
   },
   "author": "Adam Hancock",
   "license": "ISC",
