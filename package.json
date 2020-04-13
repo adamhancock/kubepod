@@ -19,6 +19,7 @@
     "fs": "0.0.1-security",
     "handlebars": "^4.7.6",
     "ncc": "^0.3.6",
-    "node-emoji": "^1.10.0"
+    "node-emoji": "^1.10.0",
+    "pkg": "^4.4.7"
   }
 }
