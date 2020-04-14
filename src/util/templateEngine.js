@@ -1,4 +1,5 @@
 const Handlebars = require('handlebars')
+const emoji = require('node-emoji')
 const program = require('commander')
 const fs = require('fs')
 const path = require('path')
@@ -10,8 +11,8 @@ program.parse(process.argv)
 module.exports = function () {
   const template = Handlebars.compile(
     fs
-      .readFileSync(path.join(process.cwd(), './src/assets/kubepod.yaml'))
-      .toString()
+    .readFileSync(path.join(process.cwd(), './src/assets/kubepod.yaml'))
+    .toString()
   )
 
   return {
