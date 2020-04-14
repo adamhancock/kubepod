@@ -9,7 +9,7 @@ resources:
 - repo: self
 
 variables:
-  tag: '$(Build.BuildId)'
+  tag: $(npm view kubepod version)
 
 stages:
 - stage: Build
@@ -23,6 +23,6 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'Dockerhub'
-        repository: 'kubepod'
+        repository: 'adamhancock/kubepod'
         command: 'buildAndPush'
         Dockerfile: '**/container/Dockerfile'
