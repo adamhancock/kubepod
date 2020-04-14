@@ -25,4 +25,5 @@ stages:
         containerRegistry: 'Dockerhub'
         repository: 'adamhancock/kubepod'
         command: 'buildAndPush'
+        tags: $(tag)
         Dockerfile: '**/container/Dockerfile'
