@@ -51,6 +51,8 @@ RUN kubectl config set-context kubernetes \
 RUN sed -i -e 's/KUBE_PS1_SYMBOL_DEFAULT=/#KUBE_PS1_SYMBOL_DEFAULT=/g' /root/.oh-my-zsh/plugins/kube-ps1/kube-ps1.plugin.zsh
 # set default shell
 
+RUN apt-get install iputils-ping
+
 WORKDIR /root
 ENTRYPOINT ["zsh", "-l"]
 
