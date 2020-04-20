@@ -93,8 +93,9 @@ source $ZSH/oh-my-zsh.sh
 PROMPT='$(kube_ps1)'$PROMPT
 # User configuration
 
-# stern auto complete
+# Auto completes
 source <(stern --completion=zsh)
+source <(helm completion zsh)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
