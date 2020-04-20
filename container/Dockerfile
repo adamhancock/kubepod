@@ -5,7 +5,7 @@ ENV \
   STERN_VERSION=1.11.0
 
 RUN apt-get update
-RUN apt-get install -y zsh curl httping nano git jq tmux vim apache2-utils nmap dnsutils python speedtest-cli wget
+RUN apt-get install -y zsh curl httping nano git jq tmux vim apache2-utils nmap dnsutils python speedtest-cli wget iputils-ping
 
 # Oh my zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

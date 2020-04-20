@@ -3217,7 +3217,7 @@ module.exports = exports['default'];
 /***/ 183:
 /***/ (function(module) {
 
-module.exports = {"name":"kubepod","version":"2.0.2","description":"","main":"index.js","bin":"dist/index.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1","build":"npm version patch && npm run buildContainer","buildWrapper":"ncc build src/index.js -o dist","buildContainer":"docker buildx build container -t adamhancock/kubepod:`cat package.json | jq -r '.version'` --push --platform=linux/amd64","start":"node dist/index.js"},"author":"Adam Hancock","license":"ISC","dependencies":{"chalk":"^4.0.0","child_process":"^1.0.2","fs":"0.0.1-security","handlebars":"^4.7.6","ncc":"^0.3.6","node-emoji":"^1.10.0","pkg":"^4.4.7"}};
+module.exports = {"name":"kubepod","version":"2.0.5","description":"","main":"index.js","bin":"dist/index.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1","build":"npm version patch && npm run buildContainer && npm run buildWrapper && npm publish","buildWrapper":"ncc build src/index.js -o dist","buildContainer":"docker buildx build container -t adamhancock/kubepod:`cat package.json | jq -r '.version'` --push --platform=linux/amd64","start":"node dist/index.js"},"author":"Adam Hancock","license":"ISC","dependencies":{"chalk":"^4.0.0","child_process":"^1.0.2","fs":"0.0.1-security","handlebars":"^4.7.6","ncc":"^0.3.6","node-emoji":"^1.10.0","pkg":"^4.4.7"}};
 
 /***/ }),
 
