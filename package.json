@@ -6,7 +6,7 @@
   "bin": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm version patch && npm run buildContainer",
+    "build": "npm version patch && npm run buildContainer && npm run buildWrapper",
     "buildWrapper": "ncc build src/index.js -o dist",
     "buildContainer": "docker buildx build container -t adamhancock/kubepod:`cat package.json | jq -r '.version'` --push --platform=linux/amd64",
     "start": "node dist/index.js"

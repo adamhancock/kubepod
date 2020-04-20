@@ -32,5 +32,5 @@ stages:
               containerRegistry: "Dockerhub"
               repository: "adamhancock/kubepod"
               command: "buildAndPush"
-              tags: $(imageTag)
-              Dockerfile: "**/container/Dockerfile"
+              tags: "$(imageTag)"
+              Dockerfile: "$(Build.SourcesDirectory)/container/Dockerfile"
