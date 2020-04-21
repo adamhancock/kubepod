@@ -25,7 +25,7 @@ stages:
             displayName: 'Bump version number'
             inputs:
               command: 'custom'
-              customCommand: 'version patch'
+              customCommand: 'version patch -m "Bump version to %s [skip ci]" --force'
 
           - task: Npm@1
             displayName: 'Build dist/index.js'
