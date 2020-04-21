@@ -15,17 +15,20 @@ stages:
       - job: Build
         displayName: Build
         pool:
-          vmImage: "ubuntu-latest"
+          vmImage: 'ubuntu-latest'
         steps:
           - task: Npm@1
+            displayName: 'Install dependencies'
             inputs:
-              command: "install"
+              command: 'install'
           - task: Npm@1
+            displayName: 'Bump version number'
             inputs:
-              command: "custom"
-              customCommand: "run buildWrapper"
+              command: 'custom'
+              customCommand: 'version patch'
 
           - task: Npm@1
+            displayName: 'Build dist/index.js'
             inputs:
-              command: "custom"
-              customCommand: "version patch"
+              command: 'custom'
+              customCommand: 'run buildWrapper'
