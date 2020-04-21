@@ -20,11 +20,9 @@ stages:
           - task: Npm@1
             inputs:
               command: 'install'
-              workingDir: '$(Build.StagingDirectory)'
           - task: Npm@1
             inputs:
               command: 'custom'
-              workingDir: '$(Build.StagingDirectory)'
               customCommand: 'run buildWrapper'
 
           
