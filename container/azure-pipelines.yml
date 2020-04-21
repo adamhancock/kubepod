@@ -19,7 +19,7 @@ stages:
         steps:
           - task: npmAuthenticate@0
             inputs:
-              workingFile: 
+              workingFile: '.npmrc'
               customEndpoint: 'NPM'
           - task: Npm@1
             inputs:
