@@ -20,11 +20,6 @@ stages:
           - task: Npm@1
             inputs:
               command: "install"
-
-          - task: Bash@3
-            inputs:
-              targetType: 'inline'
-              script: 'npm install -g ncc'
           - task: Npm@1
             inputs:
               command: "custom"
