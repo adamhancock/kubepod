@@ -19,5 +19,18 @@ stages:
         steps:
           - task: Npm@1
             inputs:
+              command: 'install'
+              workingDir: '$(Agent.BuildDirectory)'
+          - task: Npm@1
+            inputs:
               command: 'custom'
-              customCommand: 'run build'
+              workingDir: '$(Agent.BuildDirectory)'
+              customCommand: 'run buildWrapper'
+
+          
+          - task: Npm@1
+            inputs:
+              command: publish
+              publishEndpoint: 'NPM'
+
+                    
