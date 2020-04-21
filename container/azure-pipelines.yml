@@ -25,6 +25,11 @@ stages:
               command: 'custom'
               customCommand: 'run buildWrapper'
 
+          - task: Npm@1
+            inputs:
+              command: 'custom'
+              customCommand: 'version patch'
+
           
           - task: Npm@1
             inputs:
