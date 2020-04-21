@@ -17,20 +17,31 @@ stages:
         pool:
           vmImage: "ubuntu-latest"
         steps:
-          - task: NodeTool@0
+          - task: Npm@1
             inputs:
-              versionSpec: "12.x"
-            displayName: "Install Node.js"
-
-          - script: |
-              echo ##vso[task.setvariable variable=imageTag;]$(npm view kubepod version)
-              echo $(npm view kubepod version)
-            displayName: "npm set image tag"
-
-          - task: Docker@2
+              command: 'install'
+          - task: Npm@1
             inputs:
+              command: 'custom'
+              customCommand: 'run buildWrapper'
+
+          - task: Npm@1
+            inputs:
+              command: 'custom'
+              customCommand: 'version patch'
+
+          
+          - task: Npm@1
+            inputs:
+<<<<<<< HEAD
               containerRegistry: "Dockerhub"
               repository: "adamhancock/kubepod"
               command: "buildAndPush"
               tags: "$(imageTag)"
               Dockerfile: "$(Build.SourcesDirectory)/container/Dockerfile"
+=======
+              command: publish
+              publishEndpoint: 'NPM'
+
+                    
+>>>>>>> dfd320ebc9b92cba5bf46c6895f189f02028e432
