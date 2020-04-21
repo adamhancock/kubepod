@@ -19,29 +19,13 @@ stages:
         steps:
           - task: Npm@1
             inputs:
-              command: 'install'
+              command: "install"
           - task: Npm@1
             inputs:
-              command: 'custom'
-              customCommand: 'run buildWrapper'
+              command: "custom"
+              customCommand: "run buildWrapper"
 
           - task: Npm@1
             inputs:
-              command: 'custom'
-              customCommand: 'version patch'
-
-          
-          - task: Npm@1
-            inputs:
-<<<<<<< HEAD
-              containerRegistry: "Dockerhub"
-              repository: "adamhancock/kubepod"
-              command: "buildAndPush"
-              tags: "$(imageTag)"
-              Dockerfile: "$(Build.SourcesDirectory)/container/Dockerfile"
-=======
-              command: publish
-              publishEndpoint: 'NPM'
-
-                    
->>>>>>> dfd320ebc9b92cba5bf46c6895f189f02028e432
+              command: "custom"
+              customCommand: "version patch"
