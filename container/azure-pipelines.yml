@@ -17,10 +17,10 @@ stages:
         pool:
           vmImage: "ubuntu-latest"
         steps:
-          - task: npmAuthenticate@0
+          - task: Npm@1
             inputs:
-              workingFile: '.npmrc'
-              customEndpoint: 'NPM'
+              command: publish
+              publishEndpoint: 'NPM'
           - task: Npm@1
             inputs:
               command: 'custom'
