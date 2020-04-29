@@ -1,5 +1,6 @@
 FROM ubuntu:latest
 ARG ARCH=amd64
+ARG DEBIAN_FRONTEND=noninteractive
 
 ENV \
   STERN_VERSION=1.11.0
