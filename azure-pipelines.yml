@@ -68,7 +68,7 @@ stages:
             customFeed: { FEED GUID }
 
           - task: Npm@1
-            displayName: "Build dist/index.js"
+            displayName: "Build Executables"
             inputs:
               command: "custom"
               customCommand: "run buildWrapper"
