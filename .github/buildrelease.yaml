@@ -45,8 +45,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./dist/portx-win.exe
-          asset_name: portx.exe
+          asset_path: ./dist/kubepod.exe
+          asset_name: kubepod.exe
           asset_content_type: application/x-executable
       - name: Upload Release Asset 2
         id: upload-release-asset2
@@ -55,8 +55,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-          asset_path: ./dist/portx-linux
-          asset_name: portx-linux
+          asset_path: ./dist/kubepod
+          asset_name: kubepod
           asset_content_type: application/x-executable
       - name: Upload Release Asset 3
         id: upload-release-asset3
