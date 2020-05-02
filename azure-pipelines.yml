@@ -23,7 +23,8 @@ stages:
               command: "install"
 
           - task: Bash@3
-            inputs: echo `cat package.json | jq -r '.version'`
+            inputs:
+              script: echo `cat package.json | jq -r '.version'`
             env:
             BUILD_NUMBER: $(Build.BuildNumber)
             displayName: "get package version"
