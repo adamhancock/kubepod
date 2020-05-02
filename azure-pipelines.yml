@@ -22,9 +22,8 @@ stages:
             inputs:
               command: "install"
 
-          - bash: |
-              BUILD_NUMBER=`cat package.json | jq -r '.version'`
-              fi
+          - task: Bash@3
+            inputs: echo `cat package.json | jq -r '.version'`
             env:
             BUILD_NUMBER: $(Build.BuildNumber)
             displayName: "get package version"
