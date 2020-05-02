@@ -17,9 +17,6 @@ jobs:
         with:
           node-version: "12.x"
       - run: npm run buildWrapper
-      - name: Get current time
-        uses: gerred/actions/current-time@master
-        id: current-time
       - name: get-npm-version
         uses: martinbeentjes/npm-get-version-action@master
       - name: Create Release
@@ -29,7 +26,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ steps.get-npm-version.outputs.current-version}}
-          release_name: ${{ steps.get-npm-version.outputs.current-version}}
+          release_name: Release Master-${{ steps.get-npm-version.outputs.current-version}}
           draft: false
           prerelease: false
       - name: Upload Release Asset
