@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: "12.x"
-      - run: npm run build
+      - run: npm run buildWrapper
       - name: Get current time
         uses: gerred/actions/current-time@master
         id: current-time
