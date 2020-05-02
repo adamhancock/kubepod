@@ -28,7 +28,7 @@ stages:
               customCommand: 'version patch -m "Bump version to %s [skip ci]" --force'
 
           - task: Npm@1
-            displayName: 'Build dist/index.js'
+            displayName: 'Build Executables'
             inputs:
               command: 'custom'
               customCommand: 'run buildWrapper'
