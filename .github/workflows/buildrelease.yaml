@@ -17,16 +17,25 @@ jobs:
         with:
           node-version: "12.x"
       - run: npm run buildWrapper
-      - name: get-npm-version
-        uses: martinbeentjes/npm-get-version-action@master
+      - name: Get current time
+        uses: gerred/actions/current-time@master
+        id: current-time
+      - name: Run string replace
+        uses: frabert/replace-string-action@master
+        id: format-time
+        with:
+          pattern: '[:\.]+'
+          string: "${{ steps.current-time.outputs.time }}"
+          replace-with: "-"
+          flags: "g"
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.get-npm-version.outputs.current-version}}
-          release_name: Release Master-${{ steps.get-npm-version.outputs.current-version}}
+          tag_name: ${{ steps.format-time.outputs.replaced }}
+          release_name: Release Master-${{ steps.format-time.outputs.replaced }}
           draft: false
           prerelease: false
       - name: Upload Release Asset
